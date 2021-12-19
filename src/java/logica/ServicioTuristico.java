@@ -10,21 +10,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 public class ServicioTuristico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int codigo_servicio;
+    private int codigo_servicio;
     @Basic
-    public String nombre;
-    public String descripcion_breve;
-    public String destino_servicio;
-    public Date fecha_servicio;    //ver si anda el date
-    public double costo_servicio;  //ver si son private
+    private String nombre;
+    private String descripcion_breve;
+    private String destino_servicio;
+    @Temporal(TemporalType.DATE)
+    private Date fecha_servicio;   
+    private double costo_servicio; 
     @ManyToMany
-    public List<PaqueteTuristico> lista_paquetes;
+    private List<PaqueteTuristico> lista_paquetes;
     @OneToMany
-    public List<Venta> ventas;
+    private List<Venta> ventas;
 
     public ServicioTuristico() {
     }

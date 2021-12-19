@@ -1,18 +1,18 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
+import logica.Venta;
 
 @WebServlet(name = "SvVenta", urlPatterns = {"/SvVenta"})
 public class SvVenta extends HttpServlet {
-    Controladora control = new Controladora();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,11 +35,18 @@ public class SvVenta extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        Date fecha = Date.valueOf(request.getParameter("fecha"));
+        Controladora control = new Controladora();
+        Date fecha = control.pasarADate(request.getParameter("fecha"));
         String medio = request.getParameter("medio");
+        int idU = Integer.parseInt(request.getParameter("empleado"));
+        int idc = Integer.parseInt(request.getParameter("cliente"));
+
         
-        control.crearVenta(fecha,medio);
+        
+        control.crearVenta(fecha,medio,idU,idc);
+
+        
+        
         response.sendRedirect("Ventas.jsp");
     }
 

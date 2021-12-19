@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +35,7 @@ public class SvEliminarServicio extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //traigo id 
-        int id = (int) Integer.parseInt(request.getParameter("id"));
+        int id =  Integer.parseInt(request.getParameter("id"));
         
         Controladora control = new Controladora();
 

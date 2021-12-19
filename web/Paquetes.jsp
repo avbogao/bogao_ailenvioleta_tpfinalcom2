@@ -4,6 +4,7 @@
     Author     : Merlo
 --%>
 
+<%@page import="java.util.Arrays"%>
 <%@page import="logica.ServicioTuristico"%>
 <%@page import="logica.PaqueteTuristico"%>
 <%@page import="java.util.List"%>
@@ -47,14 +48,19 @@
             <% int id = c.getCodigo_paquete();
                double costo = c.getCosto_paquete();
                List<ServicioTuristico> servicios = c.getLista_servicios_incluidos();
-
-               
+               String[] st = new String[servicios.size()];
+               int i=0;
+               for(ServicioTuristico s : servicios){
+                   String name = s.getNombre();
+                   st[i] = name;
+                   i++;
+               }
 
                
             %>
           <td><%=id%></td>
           <td><%=costo%></td>
-          <td><%=servicios%></td>
+          <td><%=Arrays.toString(st)%></td>
           <td>
               <form name="modificarPaquete" action="SvModificarPaquete" method="post">
                  <input type="hidden" name="id" value="<%=id%>"/>

@@ -1,7 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +31,7 @@ public class SvModificarEmpleado extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Controladora control = new Controladora();
         //traigo id 
         int id = Integer.parseInt(request.getParameter("id"));  
         
@@ -38,14 +39,13 @@ public class SvModificarEmpleado extends HttpServlet {
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");
         String dni = request.getParameter("dni");
-        Date fecha_nac = Date.valueOf(request.getParameter("fecha_nac"));
+        Date fecha_nac = control.pasarADate(request.getParameter("fecha_nac"));
         String nacionalidad = request.getParameter("nacionalidad");
         String celular = request.getParameter("celular");
         String email = request.getParameter("email");
         String cargo = request.getParameter("cargo");
         Double sueldo = Double.parseDouble(request.getParameter("sueldo"));
         
-        Controladora control = new Controladora();
 
         Empleado emple = control.buscarEmpleado(id);
         emple.setNombre(nombre);

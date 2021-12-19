@@ -4,6 +4,9 @@
     Author     : Merlo
 --%>
 
+<%@page import="logica.ServicioTuristico"%>
+<%@page import="java.util.List"%>
+<%@page import="logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +23,9 @@
             
         %>
          <div class="content-section" id="registrate" >
+             <%Controladora control = new Controladora();
+                List<ServicioTuristico> listaServicios = control.traerServicios();
+             %>
             <div class="container">
                 
                     <div class="heading-section col-md-12 text-center">
@@ -32,13 +38,20 @@
    
                         <div class="contact-form"> <!-- aca esta el formulario -->
                             <form method="POST" action= "SvPaquete" name="contactform" id="contactform">
-                                <p>
-                                    <input name="costo" type="text" id="costo" placeholder="Costo">
-                                </p>
-                                <p>
-                                    <input name="servicios" type="text" id="servicios" placeholder="Servicios">
-                                </p>
 
+                                <p> Seleccione dos o más servicios:
+                                    <br>
+                                    <%for(ServicioTuristico s : listaServicios){
+                                        String nombreS = s.getNombre();
+                                        String desc = s.getDescripcion_breve();
+                                        int id = s.getCodigo_servicio();
+                                    %>
+                                    <abbr title="<%=desc%>"> <input type="checkbox" name="servicioSelect" value="<%=id%>"><%=nombreS%></abbr>
+                                  
+                                    <br>
+                                    <%}%>
+                                </p>
+                              
                                 <input type="submit" value="Agregar" >
                             </form>
                         </div> <!-- /.contact-form -->

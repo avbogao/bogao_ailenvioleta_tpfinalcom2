@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -14,18 +15,18 @@ import javax.persistence.TemporalType;
 public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id_cliente;
-    public String nombre;
-    public String apellido;
-    public String dirección;
-    public String dni; //?
+    private int id_cliente;
+    private String nombre;
+    private String apellido;
+    private String dirección;
+    private String dni; 
     @Temporal(TemporalType.DATE)
-    public Date fecha_nac; //ver si no causa problemas
-    public String nacionalidad;
-    public String celular;//?
-    public String email;
+    private Date fecha_nac; 
+    private String nacionalidad;
+    private String celular;
+    private String email;
     @OneToMany
-    public List<Venta> ventas;
+    private List<Venta> ventas;
 
     public Cliente() {
     }

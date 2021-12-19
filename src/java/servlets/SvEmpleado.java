@@ -1,7 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +11,7 @@ import logica.Controladora;
 
 @WebServlet(name = "svEmpleado", urlPatterns = {"/SvEmpleado"})
 public class SvEmpleado extends HttpServlet {
-    Controladora control = new Controladora();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,11 +35,13 @@ public class SvEmpleado extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            Controladora control = new Controladora();
+            
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");
         String dni = request.getParameter("dni");
-        Date fecha_nac = Date.valueOf(request.getParameter("fecha_nac"));
+        Date fecha_nac = control.pasarADate(request.getParameter("fecha_nac"));
         String nacionalidad = request.getParameter("nacionalidad");
         String celular = request.getParameter("celular");
         String email = request.getParameter("email");

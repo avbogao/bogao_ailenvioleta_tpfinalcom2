@@ -78,29 +78,14 @@ https://templatemo.com/tm-406-flex
                             <li>
                                 <div class="overlay"></div>
                                 <img src="images/slide1.jpg" alt="">
-                                <div class="slider-caption visible-md visible-lg">
-                                    <h2>Digital Marketing</h2>
-                                    <p>more visitors to your website</p>
-                                    <a href="#" class="slider-btn">Let us design!</a>
-                                </div>
                             </li>
                             <li>
                                 <div class="overlay"></div>
                                 <img src="images/slide2.jpg" alt="">
-                                <div class="slider-caption visible-md visible-lg">
-                                    <h2>Responsive HTML CSS</h2>
-                                    <p>Download and use it for your site</p>
-                                    <a href="#" class="slider-btn">Go to Portfolio</a>
-                                </div>
                             </li>
                             <li>
                                 <div class="overlay"></div>
                                 <img src="images/slide3.jpg" alt="">
-                                <div class="slider-caption visible-md visible-lg">
-                                    <h2>Pro Level Design</h2>
-                                    <p>High standard work</p>
-                                    <a href="#" class="slider-btn">Mobile Website</a>
-                                </div>
                             </li>
                         </ul>
                     </div> <!-- /.flexslider -->

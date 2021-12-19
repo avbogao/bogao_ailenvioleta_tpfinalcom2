@@ -1,8 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +30,7 @@ public class SvModificarServicio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        Controladora control = new Controladora();
         //traigo id 
         int id = Integer.parseInt(request.getParameter("id"));  
         
@@ -39,9 +38,8 @@ public class SvModificarServicio extends HttpServlet {
         String descripcion = request.getParameter("descripcion");
         String destino = request.getParameter("destino");
         double costo = Double.parseDouble(request.getParameter("costo"));
-        Date fecha = Date.valueOf(request.getParameter("fecha"));
+        Date fecha = control.pasarADate(request.getParameter("fecha"));
         
-        Controladora control = new Controladora();
 
         ServicioTuristico st = control.buscarServicio(id);
         st.setNombre(nombre);

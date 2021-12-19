@@ -4,6 +4,8 @@
     Author     : Merlo
 --%>
 
+<%@page import="logica.Cliente"%>
+<%@page import="logica.Usuario"%>
 <%@page import="java.util.Date"%>
 <%@page import="logica.Venta"%>
 <%@page import="java.util.List"%>
@@ -34,6 +36,8 @@
     <tr>
       <th>Id</th>
       <th>Fecha venta</th>
+      <th>Vendedor</th>
+      <th>Comprador</th>
       <th>Medio de pago</th>
       <th>Modificar</th>
       <th>Eliminar</th>
@@ -42,6 +46,10 @@
   <tbody>
       <% Controladora control = new Controladora(); 
       List<Venta> listaVentas = control.traerVentas();
+      List<Usuario> listaUsuarios = control.traerUsuarios();
+      List<Cliente> listaClientes = control.traerClientes();
+      
+     
       for(Venta v : listaVentas){%>
         <tr>
             <% int id = v.getNum_venta();
@@ -50,6 +58,8 @@
             %>
           <td><%=id%></td>
           <td><%=fechaventa%></td>
+
+          
           <td><%=medio%></td>
           <td>
               <form name="modificarVenta" action="SvModificarVenta" method="post">

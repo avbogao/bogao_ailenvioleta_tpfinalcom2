@@ -1,8 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,17 +34,22 @@ public class SvModificarPaquete extends HttpServlet {
             throws ServletException, IOException {
         //traigo id 
         int id = Integer.parseInt(request.getParameter("id"));  
-        
-        double costo = Double.parseDouble(request.getParameter("costo"));
-        List<ServicioTuristico> servicios = request.getParameter("servicios");
-
-        
         Controladora control = new Controladora();
-
+        String[] servicios = request.getParameterValues("servicioSelect");
+        
+        List<ServicioTuristico> ls = new ArrayList<>();
+        double costo = 0;
+        for(String e : servicios){
+            ls.add(control.buscarServicio(Integer.parseInt(e)));
+            costo += control.buscarServicio(Integer.parseInt(e)).getCosto_servicio();
+        }
+        costo -= ((costo*10) /100);
+        
         PaqueteTuristico p = control.buscarPaquete(id);
-        p.setCosto_paquete(costo);
-        p.setLista_servicios_incluidos(servicios);
+        
 
+        p.setLista_servicios_incluidos(ls);
+        p.setCosto_paquete(costo);
         
         control.modificarPaquete(p);
         //actualizo la tabla 

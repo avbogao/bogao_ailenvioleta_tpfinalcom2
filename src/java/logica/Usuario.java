@@ -26,6 +26,7 @@ public class Usuario implements Serializable {
         this.id_user = id_user;
         this.user = user;
         this.pass = pass;
+        
     }
 
     public List<Venta> getVentas() {

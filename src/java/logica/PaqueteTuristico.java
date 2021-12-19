@@ -13,13 +13,13 @@ import javax.persistence.OneToMany;
 public class PaqueteTuristico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int codigo_paquete;
+    private int codigo_paquete;
     @Basic
-    public double costo_paquete;
+    private double costo_paquete;
     @ManyToMany
-    public List<ServicioTuristico> lista_servicios_incluidos;
+    private List<ServicioTuristico> lista_servicios_incluidos;
     @OneToMany
-    public List<Venta> ventas;
+    private List<Venta> ventas;
 
     public PaqueteTuristico() {
     }

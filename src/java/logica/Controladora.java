@@ -1,12 +1,33 @@
 package logica;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import persistencia.ControladoraPersistencia;
-import persistencia.exceptions.NonexistentEntityException;
 
 public class Controladora {
     ControladoraPersistencia controlp = new ControladoraPersistencia();
+    // formato fecha 
+    public Date pasarADate(String fecha){
+        Date fechaN = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            fechaN = formato.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(Controladora.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return fechaN;
+    }
+    public String DateAString(Date fecha){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd"); 
+        String fechaComoCadena = sdf.format(fecha);
+        return fechaComoCadena;
+    }
+
     //empleado
     public void crearEmpleado(String nombre, String apellido, String direccion, String dni, Date fecha_nac, String nacionalidad, String celular, String email, String cargo, Double sueldo, String user, String password) {
         Empleado empleado = new Empleado();
@@ -156,25 +177,34 @@ public class Controladora {
         controlp.modificarPaquete(p);
     }
 
-    public void crearPaquete(double costo, List<ServicioTuristico> servicios) {
+    public void crearPaquete(String[] servicios) {
         PaqueteTuristico p = new PaqueteTuristico();
-        
+
+        List<ServicioTuristico> serviciosT= new ArrayList();
+        double costo = 0;
+        for(String i : servicios){
+            int id = Integer.parseInt(i);
+            serviciosT.add(controlp.buscarServicio(id));
+            costo += controlp.buscarServicio(id).getCosto_servicio();
+        }
+        costo -= (costo*10) / 100;
+        p.setLista_servicios_incluidos(serviciosT);
         p.setCosto_paquete(costo);
-        p.setLista_servicios_incluidos(servicios);
-        
         controlp.crearPaquete(p);
     }
 
     //ventas
     
-    public void crearVenta(Date fecha, String medio) {
+    public void crearVenta(Date fecha, String medio, int idU, int idc) {
         Venta v = new Venta();
         
         v.setFecha_venta(fecha);
         v.setMedio_pago(medio);
         
-        controlp.crearVenta(v);
-    }
+        controlp.crearVenta(v,idU,idc);
+       
+                    
+        }
 
     public void eliminarVenta(int id) {
         controlp.eliminarVenta(id);

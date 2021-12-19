@@ -7,14 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 public class Venta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int num_venta;
+    private int num_venta;
     @Basic
-    public Date fecha_venta;
-    public String medio_pago;
+    @Temporal(TemporalType.DATE)
+    private Date fecha_venta;
+    private String medio_pago;
 
     public Venta() {
     }

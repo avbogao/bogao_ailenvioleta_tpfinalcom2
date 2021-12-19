@@ -1,8 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,14 +30,13 @@ public class SvModificarVenta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Controladora control = new Controladora();
         //traigo id 
         int id = Integer.parseInt(request.getParameter("id"));  
         
-        Date fecha = Date.valueOf(request.getParameter("fecha"));
+        Date fecha = control.pasarADate(request.getParameter("fecha"));
         String medio = request.getParameter("medio");
 
-        
-        Controladora control = new Controladora();
 
         Venta v = control.buscarVenta(id);
         v.setFecha_venta(fecha);

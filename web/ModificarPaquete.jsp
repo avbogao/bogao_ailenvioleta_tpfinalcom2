@@ -4,6 +4,9 @@
     Author     : Merlo
 --%>
 
+<%@page import="logica.ServicioTuristico"%>
+<%@page import="java.util.List"%>
+<%@page import="logica.Controladora"%>
 <%@page import="logica.PaqueteTuristico"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,13 +38,22 @@
                             <form method="get" action= "SvModificarPaquete" >
                                 <% 
                                     PaqueteTuristico p = (PaqueteTuristico) mysession.getAttribute("paquete");
+                                    Controladora control = new Controladora();
+                                     List<ServicioTuristico> listaServicios = control.traerServicios();
+             
                                     {%>
                                 
-                                <p>
-                                    <input name="costo" type="text" id="costo" placeholder="Costo" value="<%=p.getCosto_paquete()%>">
-                                </p>
-                                <p>
-                                    <input name="servicios" type="text" id="servicios" placeholder="servicios" value="<%=p.getLista_servicios_incluidos()%>">
+                                <p> Servicios: 
+                                    <br>
+                                    <%for(ServicioTuristico s : listaServicios){
+                                        String nombreS = s.getNombre();
+                                        String desc = s.getDescripcion_breve();
+                                        int id = s.getCodigo_servicio();
+                                    %>
+                                    <abbr title="<%=desc%>"> <input type="checkbox" name="servicioSelect" value="<%=id%>"><%=nombreS%></abbr>
+                                  
+                                    <br>
+                                    <%}%>
                                 </p>
                                 
                                 <input type="hidden" name="id" value="<%=p.getCodigo_paquete()%>" >

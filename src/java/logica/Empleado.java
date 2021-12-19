@@ -14,19 +14,19 @@ import javax.persistence.TemporalType;
 public class Empleado  implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id_empleado;
+    private int id_empleado;
     @Basic
-    public String cargo;
-    public Double sueldo;
-    public String nombre;
-    public String apellido;
-    public String dirección;
-    public String dni; //?
+    private String cargo;
+    private Double sueldo;
+    private String nombre;
+    private String apellido;
+    private String dirección;
+    private String dni; 
     @Temporal(TemporalType.DATE)
-    public Date fecha_nac; //ver si no causa problemas
-    public String nacionalidad;
-    public String celular;//?
-    public String email;
+    private Date fecha_nac;
+    private String nacionalidad;
+    private String celular;
+    private String email;
     @OneToOne
     private Usuario usu;
 
