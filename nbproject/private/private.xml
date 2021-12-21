@@ -12,12 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/web/Ventas.jsp</file>
-            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/web/agregarVenta.jsp</file>
-            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/web/ModificarVenta.jsp</file>
-            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/src/java/servlets/SvModificarVenta.java</file>
+            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/src/java/logica/Venta.java</file>
             <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/src/java/logica/Controladora.java</file>
-            <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/src/java/servlets/SvVenta.java</file>
             <file>file:/C:/Users/Merlo/Documents/NetBeansProjects/tpFinal_Ailen_Bogao/src/java/persistencia/ControladoraPersistencia.java</file>
         </group>
     </open-files>

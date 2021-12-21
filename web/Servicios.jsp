@@ -51,7 +51,7 @@
                String nombre = c.getNombre();
                String descripcion = c.getDescripcion_breve();
                String destino = c.getDestino_servicio();
-               Date fecha = c.getFecha_servicio();
+               String fecha = control.DateAString(c.getFecha_servicio());
                double costo = c.getCosto_servicio();
                
                

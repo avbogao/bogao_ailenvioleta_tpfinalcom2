@@ -174,18 +174,8 @@ public class ControladoraPersistencia {
 
     //ventas
     
-    public void crearVenta(Venta v,int idU, int idc) {
-        vjpa.create(v);
-         Usuario u = buscarUsuario(idU);
-        List<Venta> listaVentasUsu = u.getVentas();
-        listaVentasUsu.add(v);
-        u.setVentas(listaVentasUsu);
-        
-        Cliente c = buscarCliente(idc);
-        List<Venta> listaVentasCli = c.getVentas();
-        listaVentasCli.add(v);
-        c.setVentas(listaVentasCli);
-        
+    public void crearVenta(Venta v) {
+        vjpa.create(v);    
     }
 
     public void eliminarVenta(int id) {
@@ -211,7 +201,5 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
+   
 }

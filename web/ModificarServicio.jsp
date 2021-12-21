@@ -4,6 +4,8 @@
     Author     : Merlo
 --%>
 
+<%@page import="logica.Controladora"%>
+<%@page import="java.util.List"%>
 <%@page import="logica.ServicioTuristico"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,9 +38,26 @@
                                 <% 
                                     ServicioTuristico st = (ServicioTuristico) mysession.getAttribute("servicio");
                                     {%>
-                                
-                                <p>
-                                    <input name="nombre" type="text" id="nombre" placeholder="Nombre" value="<%=st.getNombre()%>">
+                                <p>Servicio:
+                                    <select name="nombre">
+
+                                        <option>Hotel por noche/s</option>
+
+                                        <option>Alquiler de auto</option>
+
+                                        <option>Pasajes de colectivo</option>
+                                        
+                                        <option>Pasajes de avi&oacute;n</option>
+                                        
+                                        <option>Pasajes de tren</option>
+                                        
+                                        <option>Excursiones</option>
+                                        
+                                        <option>Entradas a Eventos</option>
+
+                                 
+                                    </select>
+                                  
                                 </p>
                                 <p>
                                     <input name="descripcion" type="text" id="descripcion" placeholder="descripcion" value="<%=st.getDescripcion_breve()%>">
@@ -60,7 +79,7 @@
                             </form>
                         </div> <!-- /.contact-form -->
                         <!-- spacing for mobile viewing --><br><br>
-                   
+                   <a href="Servicios.jsp">  <input type="button" value="Volver"></a>
             
             </div> <!-- /.container -->
         </div> <!-- /#contact -->

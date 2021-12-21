@@ -36,7 +36,6 @@
       <th>Id</th>
       <th>Nombre de usuario</th>
       <th>Contraseña</th>
-      <th>Ventas</th>
       <th>Modificar</th>
       <th>Eliminar</th>
     </tr>
@@ -49,12 +48,10 @@
             <% int id = u.getId_user();
                String username = u.getUser();
                String pass = u.getPass();
-               List<Venta> ventas = u.getVentas();
             %>
           <td><%=id%></td>
           <td><%=username%></td>
           <td><%=pass%></td>
-          <td><%=ventas%></td>
           <td>
               <form name="modificarUsuario" action="SvModificarUsuario" method="post">
                  <input type="hidden" name="id" value="<%=id%>"/>

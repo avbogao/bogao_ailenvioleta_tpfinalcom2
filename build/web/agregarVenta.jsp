@@ -4,6 +4,7 @@
     Author     : Merlo
 --%>
 
+<%@page import="java.util.Arrays"%>
 <%@page import="logica.Cliente"%>
 <%@page import="logica.PaqueteTuristico"%>
 <%@page import="logica.ServicioTuristico"%>
@@ -58,7 +59,7 @@
                                               String nombre = c.getNombre();
                                               String apellido = c.getApellido();
                                               %>
-                                              <option ><%=idc%></option>
+                                              <option value="<%=idc%>"><%=idc%> <%=nombre%> <%=apellido%></option>
                                         <%}%>
                                     </select>
                                 </p>
@@ -95,8 +96,16 @@
                                     <select name="paquete" >
                                        <% for(PaqueteTuristico p : listaPaquetes){ 
                                               int idp = p.getCodigo_paquete();
+                                              List<ServicioTuristico> servicios = p.getLista_servicios_incluidos();
+                                                String[] st = new String[servicios.size()];
+                                                int i=0;
+                                                for(ServicioTuristico s : servicios){
+                                                    String name = s.getNombre();
+                                                    st[i] = name;
+                                                    i++;
+                                                }
                                               %>
-                                        <option><%=idp%></option>
+                                        <option><%=idp%> <%=Arrays.toString(st)%></option>
                                         <%}%>   
                                     </select>
                                   </p>

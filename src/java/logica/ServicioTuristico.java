@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -48,13 +49,14 @@ public class ServicioTuristico implements Serializable {
         this.ventas = ventas;
     }
 
-    public ServicioTuristico(int codigo_servicio, String nombre, String descripcion_breve, String destino_servicio, Date fecha_servicio, double costo_servicio) {
+    public ServicioTuristico(int codigo_servicio, String nombre, String descripcion_breve, String destino_servicio, Date fecha_servicio, double costo_servicio, List<Venta> ventas) {
         this.codigo_servicio = codigo_servicio;
         this.nombre = nombre;
         this.descripcion_breve = descripcion_breve;
         this.destino_servicio = destino_servicio;
         this.fecha_servicio = fecha_servicio;
         this.costo_servicio = costo_servicio;
+        this.ventas = new ArrayList<>(ventas);
     }
 
     public int getCodigo_servicio() {

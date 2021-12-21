@@ -55,7 +55,7 @@
                String apellido = c.getApellido();
                String direccion = c.getDirección();
                String dni = c.getDni();
-               Date fecha_nac = c.getFecha_nac();
+               String fecha_nac = control.DateAString(c.getFecha_nac());
                String nacionalidad = c.getNacionalidad();
                String celular = c.getCelular();
                String email = c.getEmail();

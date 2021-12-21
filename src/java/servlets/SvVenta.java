@@ -2,14 +2,12 @@ package servlets;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.Controladora;
-import logica.Venta;
 
 @WebServlet(name = "SvVenta", urlPatterns = {"/SvVenta"})
 public class SvVenta extends HttpServlet {
@@ -40,7 +38,6 @@ public class SvVenta extends HttpServlet {
         String medio = request.getParameter("medio");
         int idU = Integer.parseInt(request.getParameter("empleado"));
         int idc = Integer.parseInt(request.getParameter("cliente"));
-
         
         
         control.crearVenta(fecha,medio,idU,idc);

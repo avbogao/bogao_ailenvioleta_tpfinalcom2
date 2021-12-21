@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -24,10 +25,11 @@ public class PaqueteTuristico implements Serializable {
     public PaqueteTuristico() {
     }
 
-    public PaqueteTuristico(int codigo_paquete, List<ServicioTuristico> lista_servicios_incluidos, double costo_paquete) {
+    public PaqueteTuristico(int codigo_paquete, List<ServicioTuristico> lista_servicios_incluidos, double costo_paquete, List<Venta> ventas) {
         this.codigo_paquete = codigo_paquete;
         this.lista_servicios_incluidos = lista_servicios_incluidos;
         this.costo_paquete = costo_paquete;
+        this.ventas = new ArrayList<>(ventas);
     }
 
     public List<Venta> getVentas() {

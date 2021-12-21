@@ -49,8 +49,9 @@
                                         String nombreS = s.getNombre();
                                         String desc = s.getDescripcion_breve();
                                         int id = s.getCodigo_servicio();
+                                        double costo = s.getCosto_servicio();
                                     %>
-                                    <abbr title="<%=desc%>"> <input type="checkbox" name="servicioSelect" value="<%=id%>"><%=nombreS%></abbr>
+                                    <abbr title="<%=desc%>"> <input type="checkbox" name="servicioSelect" value="<%=id%>"><%=nombreS%></abbr>&nbsp;&nbsp;&nbsp;&nbsp;Costo: <%=costo%>
                                   
                                     <br>
                                     <%}%>
@@ -63,7 +64,7 @@
                         </div> <!-- /.contact-form -->
                         <!-- spacing for mobile viewing --><br><br>
                    
-            
+           <a href="Paquetes.jsp">  <input type="button" value="Volver"></a> 
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
         <%}%>

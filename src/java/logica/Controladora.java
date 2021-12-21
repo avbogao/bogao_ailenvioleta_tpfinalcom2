@@ -1,5 +1,6 @@
 package logica;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,7 @@ public class Controladora {
     // formato fecha 
     public Date pasarADate(String fecha){
         Date fechaN = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         try {
             fechaN = formato.parse(fecha);
         } catch (ParseException ex) {
@@ -200,10 +201,11 @@ public class Controladora {
         
         v.setFecha_venta(fecha);
         v.setMedio_pago(medio);
-        
-        controlp.crearVenta(v,idU,idc);
-       
-                    
+        Usuario u = controlp.buscarUsuario(idU);
+        Cliente c = controlp.buscarCliente(idc);
+        v.setUsu(u);
+        v.setCli(c);
+        controlp.crearVenta(v);            
         }
 
     public void eliminarVenta(int id) {

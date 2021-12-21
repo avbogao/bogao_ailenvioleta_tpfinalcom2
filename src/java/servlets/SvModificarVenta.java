@@ -8,7 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import logica.Cliente;
 import logica.Controladora;
+import logica.PaqueteTuristico;
+import logica.ServicioTuristico;
+import logica.Usuario;
 import logica.Venta;
 
 @WebServlet(name = "SvModificarVenta", urlPatterns = {"/SvModificarVenta"})
@@ -36,14 +40,14 @@ public class SvModificarVenta extends HttpServlet {
         
         Date fecha = control.pasarADate(request.getParameter("fecha"));
         String medio = request.getParameter("medio");
-
-
+        Usuario usu = control.buscarUsuario(Integer.parseInt(request.getParameter("empleado")));
+        Cliente cli = control.buscarCliente(Integer.parseInt(request.getParameter("cliente")));
         Venta v = control.buscarVenta(id);
         v.setFecha_venta(fecha);
         v.setMedio_pago(medio);
+        v.setCli(cli);
+        v.setUsu(usu);
 
-        
-        
         control.modificarVenta(v);
         //actualizo la tabla 
         HttpSession mysession = request.getSession();

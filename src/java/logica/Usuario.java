@@ -1,6 +1,7 @@
 package logica;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -22,15 +23,15 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int id_user, String user, String pass) {
+    public Usuario(int id_user, String user, String pass,List<Venta> ventas) {
         this.id_user = id_user;
         this.user = user;
         this.pass = pass;
-        
+        this.ventas = new ArrayList<>(ventas);
     }
 
     public List<Venta> getVentas() {
-        return ventas;
+        return new ArrayList<>(ventas);
     }
 
     public void setVentas(List<Venta> ventas) {

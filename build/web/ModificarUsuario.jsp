@@ -53,7 +53,7 @@
                         </div> <!-- /.contact-form -->
                         <!-- spacing for mobile viewing --><br><br>
                    
-            
+            <a href="Usuarios.jsp">  <input type="button" value="Volver"></a>
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
         <%}%>

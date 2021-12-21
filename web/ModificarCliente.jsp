@@ -70,7 +70,7 @@
                             </form>
                         </div> <!-- /.contact-form -->
                         <!-- spacing for mobile viewing --><br><br>
-                   
+     <a href="Clientes.jsp">  <input type="button" value="Volver"></a>              
             
             </div> <!-- /.container -->
         </div> <!-- /#contact -->

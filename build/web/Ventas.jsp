@@ -46,20 +46,20 @@
   <tbody>
       <% Controladora control = new Controladora(); 
       List<Venta> listaVentas = control.traerVentas();
-      List<Usuario> listaUsuarios = control.traerUsuarios();
-      List<Cliente> listaClientes = control.traerClientes();
-      
      
       for(Venta v : listaVentas){%>
         <tr>
             <% int id = v.getNum_venta();
-               Date fechaventa = v.getFecha_venta();
-               String medio = v.getMedio_pago();    
+               String fechaventa = control.DateAString(v.getFecha_venta());
+               String medio = v.getMedio_pago();  
+               String u = v.getUsu().getUser();
+               String c = v.getCli().getApellido();
+               String cn = v.getCli().getNombre();
             %>
           <td><%=id%></td>
           <td><%=fechaventa%></td>
-
-          
+          <td><%=u%></td>
+          <td><%=c%> <%=cn%></td>
           <td><%=medio%></td>
           <td>
               <form name="modificarVenta" action="SvModificarVenta" method="post">

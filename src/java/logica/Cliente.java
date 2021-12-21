@@ -31,7 +31,7 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id_cliente, String nombre, String apellido, String dirección, String dni, Date fecha_nac, String nacionalidad, String celular, String email) {
+    public Cliente(int id_cliente, String nombre, String apellido, String dirección, String dni, Date fecha_nac, String nacionalidad, String celular, String email,List<Venta> ventas) {
         this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -41,10 +41,11 @@ public class Cliente implements Serializable {
         this.nacionalidad = nacionalidad;
         this.celular = celular;
         this.email = email;
+        this.ventas = new ArrayList<>(ventas);
     }
 
     public List<Venta> getVentas() {
-        return ventas;
+        return new ArrayList<>(ventas);
     }
 
     public void setVentas(List<Venta> ventas) {

@@ -41,7 +41,7 @@
 
                                         <option>Pasajes de colectivo</option>
                                         
-                                        <option>Pasajes de avión</option>
+                                        <option>Pasajes de avi&oacute;n</option>
                                         
                                         <option>Pasajes de tren</option>
                                         
