@@ -1,0 +1,4 @@
+nombre de base de datos: tpfinal
+contraseña : tpfinal
+usuario de tomcat : ailen
+contraseña : 123456

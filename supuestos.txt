@@ -1,0 +1,4 @@
+Supuestos: 
+Al momento de realizar una venta solo se puede elegir entre los usuarios, clientes,
+servicios y paquetes que fueron agregados anteriormente, es decir, no podemos crear
+ninguna de estas cosas al momento de registrar una venta.
